@@ -206,3 +206,8 @@ int main() {
     
     return 0;
 }
+
+/*
+Executar em Linux: make clean && make && ./huffman
+Executar em Windows: make clean ; make ; ./huffman.exe
+*/
