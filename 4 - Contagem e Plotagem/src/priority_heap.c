@@ -32,22 +32,6 @@ static void swap(PriorityItem** a, PriorityItem** b){
     *b = temp;
 }
 
-static void heapify_up(MinHeap* heap, int indice) {
-    while (indice > 0) {
-        int pai = (indice - 1) / 2;
-        
-        increment_comparisons(); // Comparação de prioridades real
-        if (heap->itens[indice]->prioridade < heap->itens[pai]->prioridade) {
-            swap(&heap->itens[indice], &heap->itens[pai]);
-            indice = pai;
-        } else {
-            break;
-        }
-    }
-}
-
-
-
 static void heapify_down(MinHeap* heap, int indice) {
     while (1) {
         int esquerda = 2 * indice + 1;
@@ -74,6 +58,20 @@ static void heapify_down(MinHeap* heap, int indice) {
         if (menor != indice) {
             swap(&heap->itens[indice], &heap->itens[menor]);
             indice = menor;
+        } else {
+            break;
+        }
+    }
+}
+
+static void heapify_up(MinHeap* heap, int indice) {
+    while (indice > 0) {
+        int pai = (indice - 1) / 2;
+        
+        increment_comparisons(); // Comparação de prioridades real
+        if (heap->itens[indice]->prioridade < heap->itens[pai]->prioridade) {
+            swap(&heap->itens[indice], &heap->itens[pai]);
+            indice = pai;
         } else {
             break;
         }
