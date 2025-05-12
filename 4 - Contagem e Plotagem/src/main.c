@@ -67,9 +67,8 @@ void run_comparisons(int n) {
         
         // Fill structures with separate items (same values but different memory)
         for (int j = 0; j < size; j++) {
-            int priority = rand() % 1000;
-            
-            // Create separate data items for heap and list
+            // Use a controlled priority distribution (for example, increasing priorities)
+            int priority = j; // Prioridades crescentes para evitar distorções
             int* heap_data = malloc(sizeof(int));
             int* list_data = malloc(sizeof(int));
             *heap_data = priority;
@@ -78,7 +77,6 @@ void run_comparisons(int n) {
             insert_heap(heap, heap_data, priority);
             insert_unsorted(&list, list_data, priority);
         }
-
 
         // Test insertion with separate data items
         int new_priority = rand() % 1000;
@@ -175,3 +173,8 @@ int main() {
     
     return 0;
 }
+
+/*
+Executar em Linux: make clean && make && ./pq && Rscript scripts/plot.R
+Executar em Windows: make clean ; make ; ./pq.exe ; Rscript scripts/plot.R
+*/
