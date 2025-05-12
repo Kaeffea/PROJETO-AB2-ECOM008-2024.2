@@ -109,3 +109,8 @@ int main() {
 
     return 0;
 }
+
+/*
+Executar em Linux: make clean && make && ./dijkstra
+Executar em Windows: make clean ; make ; ./dijkstra.exe
+*/
